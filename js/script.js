@@ -13,8 +13,6 @@ var radioButton3 = document.getElementById('3');
 var radioButton4 = document.getElementById('4');
 var score = 0;
 var scoreCounter = document.getElementById('scoreCounter').innerHTML;
-console.log(scoreCounter);
-console.log(document.querySelectorAll('input[type="radio"]'));
 btn.onclick = function(){
 
     btnValidator.style.display = 'block';
@@ -74,11 +72,10 @@ function renderHTML(data){
     var choice3 = "";
     var choice4 = "";
     var indexGenerator = Math.floor(Math.random() * 3);
-    console.log(indexGenerator);
     var tabAnswers = data.results[0].incorrect_answers;
     tabAnswers.splice(indexGenerator,0,data.results[0].correct_answer);
     question = data.results[0].question;
-    console.log(tabAnswers);
+    document.querySelector('#answerConverter').innerHTML = data.results[0].correct_answer;
     for (let i = 0; i < tabAnswers.length; i++) {
         choice1 = tabAnswers[0];
         choice2 = tabAnswers[1];
@@ -94,9 +91,10 @@ function renderHTML(data){
     var tabReponse = [questionChoice1,questionChoice2,questionChoice3,questionChoice4];
     btnValidator.onclick = function(){
         if(radioButton1.checked ||radioButton2.checked ||radioButton3.checked ||radioButton4.checked){
-        validateAnswer(data.results[0].correct_answer);
+        validateAnswer();
+        var answer = document.querySelector('#answerConverter').innerHTML;
         for (let i = 0; i < tabReponse.length; i++) {
-            if(tabReponse[i].innerHTML==tabAnswers[indexGenerator]){
+            if(tabReponse[i].innerHTML==answer/*tabAnswers[indexGenerator]*/){
                 tabReponse[i].style.color='green';
                 tabReponse[i].style.fontWeight='800';
             }   
@@ -107,8 +105,9 @@ function renderHTML(data){
     };  
 }
 
-function validateAnswer(answer) {
+function validateAnswer() {
     
+    var answer = document.querySelector('#answerConverter').innerHTML;
     if(document.getElementById('1').checked){
         if(questionChoice1.innerHTML == answer){
             questionChoice1.style.color = 'green';
