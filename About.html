@@ -21,35 +21,43 @@
           <h1 class="text-center pt-4 pl-4">Trivia Master</h1>
   </header>
   <main class="container">
-    <h2 class="pt-5">
+    <div class="container text-center">
+    <h2 class="pt-5 font-weight-bold">
       Trivia Master
     </h2>
+    <h4>Présenté à Alexandre Mageau-Pétrin</h4>
+    <h4>Dans le cadre du cours Programmation Multiplateforme</h4>
+    <h5>Par Jérémy Brodeur</h5>
+  </div>
     <p>
       Le jeu Trivia Master&copy; est un jeu de trivia créé dans 
       le cadre du cours 'Programmation Multiplateforme' du 
-      Cégep de l'Outaouais. Pour commencer, on arrive sur le 
+      Cégep de l'Outaouais. <br> Pour commencer, l'utilisateur arrive sur le 
       menu du jeu qui est un overlay réalisé grace à CSS et JS. 
-      Dans le menu, on a l'option de commencer une partie, de voir 
-      la section <a href="aboutUs.html">'About'</a> ou de voir les instructions du jeu via la 
-      section <a href="howTo.html">'How To'</a>. Pour commencer le jeu, on doit choisir une 
-      parmi les 24 catégories de question qui sont générées par 
-      l'API se trouvant sur le site web 
+      Dans le menu, on a l'option de commencer une partie ou de voir 
+      la section <a href="About.html">'About'</a>. <br> Pour commencer le jeu, l'utilisateur doit choisir
+      parmi les 24 catégories de question qui sont générées par l'API se trouvant sur le site web 
       <a href="https://opentdb.com/api_config.php">Open Trivia Database</a>. 
       L'API me génère un fichier JSON. L'objet comporte la question, 
-      trois choix de réponse et la bonne réponse. Une fois la catégorie choisi 
-      (un mix de tout les catégories est choisi par défaut) l'utilisateur doit
-      cliquer sur le bouton 'Load Question'.
+      trois choix de réponse et la bonne réponse.<br> Une fois que l'utilisateur choisi sa catégorie
+      (la catégorie "Toute catégorie" est choisie par défaut) il devra cliquer sur le boutton "Charger une question".
+      Une boîte(card de bootstrap) apparaît avec la question en entête, les choix de réponses et un boutton pour valider la 
+      réponse choisie. <br>
+      Lorsque l'utilisateur appuie sur le boutton "Valider", mon code javascript compare la réponse choisi à la bonne réponse générée par l'API.
+      Si l'utilisateur à trouvé la bonne réponse, la couleur du texte deviendra vert, le bouton "Valider" change pour "Prochaine quesiton" et le pointage augmente
+      de 1. Si l'utilisateur ne trouve pas la bonne réponse, la couleur du texte de son choix deviendra rouge et la couleur du texte de la bonne réponse deviendra
+      vert. <br> <br>
+      Une fois que le pointage de l'utilisateur atteint 15, il gagne sa partie. Un overlay du même type que le overlay du menu apparaît félicitant l'utilisateur
+      de sa victoire. L'utilisateur peu ensuite appuyer sur le boutton recommencer pour recommencer une autre partie.
     </p>
 
   </main>
-  <footer class="bg-dark text-center text-light"> 
-        <h4>Trivia Master &copy;</h4>
-        <div class="container">
-        <div class="text-center">
-        <a class="mr-3" href="howTo.html">How To</a>
-        <a class="ml-3" href="aboutUs.html">About</a>
-      </div></div>
-    </footer>
+  <footer class="bg-dark text-center text-light pt-3 pb-3"> 
+    <h4><a class="text" href="index.html">Trivia Master &copy;</a></h4>
+    <div class="container">
+    <a class="text" href="About.html">À propos</a>
+  </div>
+  </footer>
       
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

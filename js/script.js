@@ -1,4 +1,5 @@
-openNav();
+
+ouvrirMenu();
 var btn = document.querySelector('#loadQuestion');
 var btnValidator = document.querySelector('#validator');
 var btnNext = document.querySelector('#nextQuestion');
@@ -17,41 +18,42 @@ btn.onclick = function(){
 
     btnValidator.style.display = 'block';
     btnNext.style.display = 'none';
-    var ourRequest = new XMLHttpRequest();
+    var request = new XMLHttpRequest();
     let category ="";
     let categorySelect = document.querySelector('#categorySelecter').value;
     if(categorySelect != 'any'){
         category ="&category=" + categorySelect;
     }
-        ourRequest.open('GET','https://opentdb.com/api.php?amount=1&type=multiple'+ category);
+    request.open('GET','https://opentdb.com/api.php?amount=1&type=multiple'+ category);
     
 
-        ourRequest.onload = function(){
-            if (ourRequest.status>= 200 && ourRequest.status < 400) {
-                var ourData = JSON.parse(ourRequest.responseText);
-                renderHTML(ourData);
+        request.onload = function(){
+            if (request.status>= 200 && request.status < 400) {
+                var data = JSON.parse(request.responseText);
+                renderHTML(data);
                 document.querySelector('.card').style.display = 'block';
             }
             else{
                alert("Connection lost.");
             }
         };
-        ourRequest.send();
+        request.send();
 };
+
 btnNext.onclick = function(){
 
-    var ourRequest = new XMLHttpRequest();
+    var request = new XMLHttpRequest();
     let category ="";
     let categorySelect = document.querySelector('#categorySelecter').value;
     if(categorySelect != 'any'){
         category ="&category=" + categorySelect;
     }
-        ourRequest.open('GET','https://opentdb.com/api.php?amount=1&type=multiple'+ category);
+    request.open('GET','https://opentdb.com/api.php?amount=1&type=multiple'+ category);
     
 
-        ourRequest.onload = function(){
-            if (ourRequest.status>= 200 && ourRequest.status < 400) {
-                var ourData = JSON.parse(ourRequest.responseText);
+        request.onload = function(){
+            if (request.status>= 200 && request.status < 400) {
+                var ourData = JSON.parse(request.responseText);
                 renderHTML(ourData);
                 document.querySelector('.card').style.display = 'block';
             }
@@ -59,7 +61,7 @@ btnNext.onclick = function(){
                alert("Connection lost.");
             }
         };
-        ourRequest.send();
+        request.send();
         btnValidator.style.display = 'block';
         btnNext.style.display = 'none';
 };
@@ -195,13 +197,13 @@ function checkIfWin(score){
             display: 'block'
             
         });
-        openNav2();
+        ouvrirMenu2();
     }
 }
-function openNav() {
+function ouvrirMenu() {
     document.getElementById("myNav").style.width = "100%";
   }
-  function openNav2() {
+  function ouvrirMenu2() {
     document.getElementById("myNav2").style.width = "100%";
   }
 $('#startGame').click(function() {
