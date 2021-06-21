@@ -94,7 +94,7 @@ function renderHTML(data){
         validateAnswer();
         var answer = document.querySelector('#answerConverter').innerHTML;
         for (let i = 0; i < tabReponse.length; i++) {
-            if(tabReponse[i].innerHTML==answer/*tabAnswers[indexGenerator]*/){
+            if(tabReponse[i].innerHTML==answer){
                 tabReponse[i].style.color='green';
                 tabReponse[i].style.fontWeight='800';
             }   
