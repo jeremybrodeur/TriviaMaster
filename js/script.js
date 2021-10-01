@@ -83,7 +83,6 @@ function renderHTML(data){
         choice2 = tabAnswers[1];
         choice3 = tabAnswers[2];
         choice4 = tabAnswers[3];
-        
     }
     divPointer.innerHTML = question;
     questionChoice1.innerHTML = choice1;
@@ -102,7 +101,7 @@ function renderHTML(data){
             }   
         } 
     }
-        else alert('Please select a value!');
+        else alert('Veuillez choisir une réponse.');
         checkIfWin(score);
     };  
 }
